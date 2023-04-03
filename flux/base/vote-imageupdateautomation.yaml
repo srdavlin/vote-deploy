@@ -1,0 +1,28 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  annotations:
+    reconcile.fluxcd.io/requestedAt: "2023-03-30T11:08:41.632959746-06:00"
+  name: example-voting-app-all
+  namespace: dev
+spec:
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+    push:
+      branch: main
+  interval: 1m0s
+  sourceRef:
+    kind: GitRepository
+    name: voting-deploy
+  update:
+    path: ./kustomize/vote/stage
+    strategy: Setters
+

@@ -1,0 +1,18 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: result
+  namespace: dev
+spec:
+  chart:
+    spec:
+      chart: ./helm/charts/result
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: GitRepository
+        name: voting-deploy
+      version: '*'
+  interval: 9h0m0s
+  targetNamespace: dev
+

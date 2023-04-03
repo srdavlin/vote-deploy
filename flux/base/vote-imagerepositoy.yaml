@@ -1,0 +1,15 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  annotations:
+    reconcile.fluxcd.io/requestedAt: "2023-03-30T09:19:55.73099924-06:00"
+  name: vote
+  namespace: flux-system
+spec:
+  exclusionList:
+  - ^.*\.sig$
+  image: srdefense/vote
+  interval: 5m0s
+  provider: generic
+

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: vote
+  name: vote
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: vote
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: vote
+        tier: front
+    spec:
+      containers:
+        #- image: schoolofdevops/vote:v2
+      - image: srdefense/vote:latest
+        name: vote
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}

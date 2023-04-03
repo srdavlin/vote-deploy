@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../base
+patchesStrategicMerge:
+- deploy.yaml
+- service.yaml
+namespace: stage
+images:
+- name: schoolofdevops/vote
+  newName: srdefense/vote
+  newTag: main-8e230d58-1680197670 # {"$imagepolicy": "flux-system:vote:tag"}
+replicas:
+- name: vote
+  count: 6

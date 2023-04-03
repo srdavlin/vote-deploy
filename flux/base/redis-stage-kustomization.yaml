@@ -1,0 +1,19 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: redis-stage
+  namespace: dev
+spec:
+  healthChecks:
+  - kind: Deployment
+    name: vote
+    namespace: dev
+  interval: 9h0m0s
+  path: ./kustomize/vote/stage
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: voting-deploy
+  timeout: 2m0s
+
