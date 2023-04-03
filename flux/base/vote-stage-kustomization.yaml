@@ -16,7 +16,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: voting-deploy
+    name: vote-deploy
   targetNamespace: dev
   timeout: 2m0s
 

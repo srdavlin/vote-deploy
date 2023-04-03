@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: voting-deploy
+  name: vote-deploy
   namespace: dev
 spec:
   gitImplementation: go-git
@@ -12,5 +12,5 @@ spec:
   secretRef:
     name: github-example-voting-app
   timeout: 2m0s
-  url: https://github.com/srdavlin/voting-deploy.git
+  url: https://github.com/srdavlin/vote-deploy.git
 

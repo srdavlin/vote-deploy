@@ -21,7 +21,7 @@ spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: voting-deploy
+    name: vote-deploy
   update:
     path: ./kustomize/vote/stage
     strategy: Setters

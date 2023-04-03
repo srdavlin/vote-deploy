@@ -11,7 +11,7 @@ spec:
       reconcileStrategy: ChartVersion
       sourceRef:
         kind: GitRepository
-        name: voting-deploy
+        name: vote-deploy
       version: '*'
   interval: 9h0m0s
   targetNamespace: dev
